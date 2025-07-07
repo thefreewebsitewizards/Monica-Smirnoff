@@ -244,19 +244,33 @@
                 display: none;
             }
             
-            /* Typography adjustments */
+            /* Typography adjustments - LARGER MOBILE HEADERS */
             .marquee-text {
                 font-size: 1.25rem !important;
             }
             
             .hero-title {
-                font-size: 2rem !important;
-                line-height: 1.2;
+                font-size: 3rem !important;
+                line-height: 1.1;
+                margin-bottom: 1rem;
             }
             
             .section-title {
-                font-size: 2rem !important;
+                font-size: 2.75rem !important;
                 line-height: 1.2;
+                margin-bottom: 1.5rem;
+            }
+            
+            /* Subtitle text larger on mobile */
+            .hero-subtitle {
+                font-size: 1.125rem !important;
+                line-height: 1.4;
+            }
+            
+            /* Description text larger */
+            .hero-description {
+                font-size: 1rem !important;
+                line-height: 1.5;
             }
             
             /* Services section mobile optimization */
@@ -304,11 +318,21 @@
         /* Additional mobile improvements for smaller screens */
         @media (max-width: 480px) {
             .hero-title {
-                font-size: 1.75rem !important;
+                font-size: 2.5rem !important;
+                line-height: 1.1;
             }
             
             .section-title {
-                font-size: 1.75rem !important;
+                font-size: 2.25rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1rem !important;
+            }
+            
+            .hero-description {
+                font-size: 0.95rem !important;
             }
             
             .phone-mockup {
@@ -371,6 +395,40 @@
         .scroll-fade.visible {
             opacity: 1;
             transform: translateY(0);
+        }
+        
+        /* Mobile-optimized animations */
+        @media (max-width: 768px) {
+            /* Reduce animation complexity on mobile for better performance */
+            .section-slide-up {
+                opacity: 0;
+                transform: translateY(30px);
+                transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            
+            .section-slide-up.active {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            .scroll-fade {
+                opacity: 0;
+                transform: translateY(20px);
+                transition: opacity 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            }
+            
+            .scroll-fade.visible {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            
+            /* Ensure sections are visible by default on very small screens */
+            @media (max-width: 480px) {
+                .section-slide-up {
+                    opacity: 1;
+                    transform: translateY(0);
+                }
+            }
         }
         
         /* Navigation link active state */
@@ -448,8 +506,8 @@
         <div class="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center">
             <div class="w-full md:w-1/2 mb-12 md:mb-0 scroll-fade text-center md:text-left" style="transform: translateY(30px);">
                 <h1 class="hero-title text-3xl sm:text-4xl md:text-6xl font-playfair font-bold mb-4">Monica Smirnoff</h1>
-                <p class="text-base sm:text-lg md:text-xl text-warm-gray mb-6">UGC Creator · Model · Food Photographer & Blogger <span class="text-xl">🇺🇦</span></p>
-                <p class="text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto md:mx-0">Creating compelling content and authentic brand stories for lifestyle, beauty, and food niches.</p>
+                <p class="hero-subtitle text-base sm:text-lg md:text-xl text-warm-gray mb-6">UGC Creator · Model · Food Photographer & Blogger <span class="text-xl">🇺🇦</span></p>
+                <p class="hero-description text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto md:mx-0">Creating compelling content and authentic brand stories for lifestyle, beauty, and food niches.</p>
                 
                 <div class="flex items-center justify-center md:justify-start mb-10 space-x-8">
                     <div class="flex items-center">
@@ -1167,19 +1225,28 @@
             });
         }
 
-        // Enhanced scroll animation with intersection observer
+        // Enhanced scroll animation with intersection observer - MOBILE OPTIMIZED
         function initScrollAnimations() {
             const scrollFadeElements = document.querySelectorAll('.scroll-fade');
             
+            // Mobile-optimized observer options
+            const isMobile = window.innerWidth <= 768;
             const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+                threshold: isMobile ? 0.05 : 0.1,
+                rootMargin: isMobile ? '0px 0px -20px 0px' : '0px 0px -50px 0px'
             };
             
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
+                        // Add a small delay for mobile to ensure smooth animation
+                        if (isMobile) {
+                            setTimeout(() => {
+                                entry.target.classList.add('visible');
+                            }, 50);
+                        } else {
+                            entry.target.classList.add('visible');
+                        }
                     }
                 });
             }, observerOptions);
@@ -1189,10 +1256,14 @@
             });
         }
         
-        // Section visibility tracking for navigation
+        // Section visibility tracking for navigation - MOBILE OPTIMIZED
         function initSectionTracking() {
             const sections = document.querySelectorAll('section');
             const navLinks = document.querySelectorAll('nav a[href^="#"], .mobile-menu a[href^="#"]');
+            
+            // Mobile-optimized threshold
+            const isMobile = window.innerWidth <= 768;
+            const threshold = isMobile ? 0.15 : 0.3;
             
             const sectionObserver = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
@@ -1207,12 +1278,18 @@
                             }
                         });
                         
-                        // Add slide-up animation to current section
-                        entry.target.classList.add('active');
+                        // Add slide-up animation to current section with mobile delay
+                        if (isMobile) {
+                            setTimeout(() => {
+                                entry.target.classList.add('active');
+                            }, 100);
+                        } else {
+                            entry.target.classList.add('active');
+                        }
                     }
                 });
             }, {
-                threshold: 0.3
+                threshold: threshold
             });
             
             sections.forEach(section => {
