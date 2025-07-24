@@ -201,6 +201,102 @@
             width: 100%;
         }
         
+        /* Video Modal Styles */
+        .video-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .video-modal.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .video-modal-content {
+            position: relative;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: #000;
+            border-radius: 12px;
+            overflow: hidden;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+        
+        .video-modal.active .video-modal-content {
+            transform: scale(1);
+        }
+        
+        .video-modal video {
+            width: 100%;
+            height: 100%;
+            max-width: 80vw;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .video-modal-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 20px;
+            color: #333;
+            transition: all 0.3s ease;
+        }
+        
+        .video-modal-close:hover {
+            background: white;
+            transform: scale(1.1);
+        }
+        
+        .video-clickable {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-clickable:hover {
+            transform: scale(1.02);
+        }
+        
+        @media (max-width: 768px) {
+            .video-modal-content {
+                max-width: 95vw;
+                max-height: 95vh;
+            }
+            
+            .video-modal video {
+                max-width: 90vw;
+                max-height: 90vh;
+            }
+            
+            .video-modal-close {
+                top: -40px;
+                width: 35px;
+                height: 35px;
+                font-size: 18px;
+            }
+        }
+        
         .accordion {
             border: 2px solid transparent;
             background: linear-gradient(white, white) padding-box,
@@ -854,11 +950,17 @@
             </div>
             <div class="lg:w-1/2 flex justify-center stagger-3 fade-in-up">
                 <div class="phone-mockup floating-animation">
-                    <div class="phone-screen">
-                        <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                    <div class="phone-screen relative">
+                        <video class="w-full h-full object-cover" autoplay loop playsinline controls>
                             <source src="/Images/hero-vid.mp4" type="video/mp4">
                         </video>
+                        <div class="video-overlay">
+                            <div class="bg-white bg-opacity-90 rounded-full p-4 backdrop-blur-sm">
+                                <i class="fas fa-volume-up text-pink-600 text-2xl"></i>
+                            </div>
+                        </div>
                     </div>
+                    <p class="text-center mt-4 font-poppins text-gray-600 text-sm">Hero Video - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-pink-600 hover:underline">Watch on TikTok</a></p>
                 </div>
             </div>
         </div>
@@ -949,7 +1051,7 @@
                         <div class="w-72 flex-shrink-0 scroll-item video-card">
                             <div class="phone-mockup mx-auto" style="width: 260px; height: 520px;">
                                 <div class="phone-screen relative">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls>
                                         <source src="/Images/hero-vid.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-overlay">
@@ -959,13 +1061,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="text-center mt-4 font-poppins text-gray-600 text-sm">Hero Video - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-pink-600 hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 2 -->
                         <div class="w-72 flex-shrink-0 scroll-item video-card">
                             <div class="phone-mockup mx-auto" style="width: 260px; height: 520px;">
                                 <div class="phone-screen relative">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls>
                                         <source src="/Images/vid1.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-overlay">
@@ -975,13 +1078,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="text-center mt-4 font-poppins text-gray-600 text-sm">Video Content - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-pink-600 hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 3 -->
                         <div class="w-72 flex-shrink-0 scroll-item video-card">
                             <div class="phone-mockup mx-auto" style="width: 260px; height: 520px;">
                                 <div class="phone-screen relative">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls>
                                         <source src="/Images/vid2.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-overlay">
@@ -991,13 +1095,14 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="text-center mt-4 font-poppins text-gray-600 text-sm">Creative Content - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-pink-600 hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 4 -->
                         <div class="w-72 flex-shrink-0 scroll-item video-card">
                             <div class="phone-mockup mx-auto" style="width: 260px; height: 520px;">
                                 <div class="phone-screen relative">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls>
                                         <source src="/Images/vid3.mp4" type="video/mp4">
                                     </video>
                                     <div class="video-overlay">
@@ -1007,6 +1112,7 @@
                                     </div>
                                 </div>
                             </div>
+                            <p class="text-center mt-4 font-poppins text-gray-600 text-sm">Brand Content - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-pink-600 hover:underline">Watch on TikTok</a></p>
                         </div>
                     </div>
                 </div>
@@ -1310,7 +1416,94 @@
         </div>
     </footer>
 
+    <!-- Video Modal -->
+    <div id="videoModal" class="video-modal">
+        <div class="video-modal-content">
+            <button class="video-modal-close" onclick="closeVideoModal()">
+                <i class="fas fa-times"></i>
+            </button>
+            <video id="modalVideo" controls>
+                <source id="modalVideoSource" src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
     <script>
+        // Video Modal Functions
+        function openVideoModal(videoSrc) {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            const modalVideoSource = document.getElementById('modalVideoSource');
+            
+            modalVideoSource.src = videoSrc;
+            modalVideo.load();
+            modal.classList.add('active');
+            
+            // Play video with sound
+            modalVideo.muted = false;
+            modalVideo.play();
+            
+            // Prevent body scroll
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function closeVideoModal() {
+            const modal = document.getElementById('videoModal');
+            const modalVideo = document.getElementById('modalVideo');
+            
+            modal.classList.remove('active');
+            modalVideo.pause();
+            modalVideo.currentTime = 0;
+            
+            // Restore body scroll
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Close modal when clicking outside video
+        document.addEventListener('click', (e) => {
+            const modal = document.getElementById('videoModal');
+            if (e.target === modal) {
+                closeVideoModal();
+            }
+        });
+        
+        // Close modal with Escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeVideoModal();
+            }
+        });
+        
+        // Make videos clickable
+        function initVideoModal() {
+            const videos = document.querySelectorAll('video');
+            
+            videos.forEach(video => {
+                // Add clickable class and cursor pointer
+                video.classList.add('video-clickable');
+                
+                // Add click event to open modal
+                video.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const videoSrc = video.querySelector('source').src;
+                    openVideoModal(videoSrc);
+                });
+                
+                // Prevent default video controls from interfering
+                video.addEventListener('play', (e) => {
+                    if (!document.getElementById('videoModal').classList.contains('active')) {
+                        e.preventDefault();
+                        video.pause();
+                    }
+                });
+            });
+        }
+        
+        // Initialize video modal when DOM is loaded
+        document.addEventListener('DOMContentLoaded', () => {
+            initVideoModal();
+        });
+
         // Intersection Observer for animations
         const observerOptions = {
             threshold: 0.1,

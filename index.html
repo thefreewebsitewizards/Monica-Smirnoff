@@ -151,24 +151,6 @@
         
         /* Mobile-specific improvements */
         @media (max-width: 768px) {
-            .hero-social-cards {
-                position: relative !important;
-                width: 100% !important;
-                height: auto !important;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero-social-card {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 320px;
-                margin: 0 auto;
-            }
             
             .phone-mockup {
                 width: 200px !important;
@@ -195,6 +177,8 @@
             }
         }
         
+
+        
         /* Mobile menu improvements */
         .mobile-menu {
             transform: translateX(-100%);
@@ -212,25 +196,7 @@
                 padding-right: 1rem;
             }
             
-            /* Hero section mobile optimization */
-            .hero-social-cards {
-                position: relative !important;
-                width: 100% !important;
-                height: auto !important;
-                display: flex;
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero-social-card {
-                position: relative !important;
-                top: auto !important;
-                left: auto !important;
-                transform: none !important;
-                width: 100% !important;
-                max-width: 320px;
-                margin: 0 auto;
-            }
+
             
             /* Phone mockup mobile adjustments */
             .phone-mockup {
@@ -479,6 +445,7 @@
                 <a href="#about" class="hover:text-soft-pink transition">About</a>
                 <a href="#brands" class="hover:text-soft-pink transition">Brands</a>
                 <a href="#work" class="hover:text-soft-pink transition">Work</a>
+                <a href="#social-cards" class="hover:text-soft-pink transition">Social Cards</a>
                 <a href="#services" class="hover:text-soft-pink transition">Services</a>
                 <a href="#testimonials" class="hover:text-soft-pink transition">Testimonials</a>
                 <a href="#social" class="hover:text-soft-pink transition">Social</a>
@@ -495,6 +462,7 @@
             <a href="#about" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">About</a>
             <a href="#brands" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Brands</a>
             <a href="#work" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Work</a>
+            <a href="#social-cards" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Social Cards</a>
             <a href="#services" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Services</a>
             <a href="#testimonials" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Testimonials</a>
             <a href="#social" class="py-3 text-xl hover:text-soft-pink transition mobile-menu-link">Social</a>
@@ -504,7 +472,8 @@
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center pt-20 pb-16 md:pt-0">
         <div class="container mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-center">
-            <div class="w-full md:w-1/2 mb-12 md:mb-0 scroll-fade text-center md:text-left" style="transform: translateY(30px);">
+            <!-- Mobile: Video First, Desktop: Text First -->
+            <div class="w-full md:w-1/2 order-2 md:order-1 mb-12 md:mb-0 scroll-fade text-center md:text-left" style="transform: translateY(30px);">
                 <h1 class="hero-title text-3xl sm:text-4xl md:text-6xl font-playfair font-bold mb-4">Monica Smirnoff</h1>
                 <p class="hero-subtitle text-base sm:text-lg md:text-xl text-warm-gray mb-6">UGC Creator · Model · Food Photographer & Blogger <span class="text-xl">🇺🇦</span></p>
                 <p class="hero-description text-sm sm:text-base md:text-lg mb-8 max-w-lg mx-auto md:mx-0">Creating compelling content and authentic brand stories for lifestyle, beauty, and food niches.</p>
@@ -526,110 +495,137 @@
                 </div>
             </div>
             
-            <div class="w-full md:w-1/2 flex justify-center scroll-fade" style="transform: translateY(30px);">
-                <div class="hero-image-container relative">
-                    <!-- Modern Social Media Cards -->
-                    <div class="hero-social-cards relative w-full max-w-md md:w-96 md:h-96">
-                        <!-- Instagram Card -->
-                        <div class="hero-social-card absolute md:top-0 md:left-0 bg-white rounded-2xl p-4 sm:p-6 shadow-2xl transform hover:rotate-0 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer z-10 w-full md:w-72 md:-rotate-3">
-                            <!-- Profile Header -->
-                            <div class="flex items-center mb-4 sm:mb-6">
-                                <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden border-3 border-soft-pink mr-3 sm:mr-4 shadow-md">
-                                    <img src="/Images/about.jpg" alt="Monica's Instagram" class="w-full h-full object-cover">
+            <!-- Mobile: Video First, Desktop: Video Second -->
+            <div class="w-full md:w-1/2 order-1 md:order-2 flex justify-center scroll-fade mb-8 md:mb-0" style="transform: translateY(30px);">
+                <div class="hero-video-container relative">
+                    <!-- Hero Video in Phone Mockup -->
+                    <div class="phone-mockup mx-auto animate-float" style="width: 320px; height: 640px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 12px; box-shadow: 0 25px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-8deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
+                        <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
+                            <video class="w-full h-full object-cover" autoplay loop playsinline muted>
+                                <source src="/Images/vid1.mp4" type="video/mp4">
+                            </video>
+                            <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.2); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: none;">
+                                <div class="bg-white bg-opacity-90 rounded-full p-4 backdrop-blur-sm">
+                                    <i class="fas fa-play text-soft-pink text-2xl"></i>
                                 </div>
-                                <div class="flex-1">
-                                    <h3 class="font-playfair font-bold text-base sm:text-lg text-deep-gray mb-1">Monica Smirnoff</h3>
-                                    <p class="text-warm-gray text-xs sm:text-sm font-poppins">UGC Content Creator</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Stats Row -->
-                            <div class="flex justify-between text-center mb-4 sm:mb-6 bg-muted-beige bg-opacity-30 rounded-xl p-3 sm:p-4">
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">194</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Posts</div>
-                                </div>
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">12.9K</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Followers</div>
-                                </div>
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">6.5K</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Following</div>
-                                </div>
-                            </div>
-                            
-                            <!-- About Section -->
-                            <div class="mb-4">
-                                <h4 class="font-playfair font-medium text-deep-gray mb-2 text-sm sm:text-base">About</h4>
-                                <p class="text-warm-gray text-xs sm:text-sm font-poppins leading-relaxed">
-                                    Food photographer & blogger creating authentic brand stories for lifestyle and beauty niches.
-                                </p>
-                            </div>
-                            
-                            <!-- Instagram Badge -->
-                            <div class="flex items-center justify-center">
-                                <i class="fab fa-instagram text-pink-600 text-base sm:text-lg mr-2"></i>
-                                <span class="font-poppins text-xs sm:text-sm text-deep-gray">@officialmonicasmirnoff</span>
                             </div>
                         </div>
-                        
-                        <!-- TikTok Card -->
-                        <div class="hero-social-card absolute md:top-20 md:left-60 bg-white rounded-2xl p-4 sm:p-6 shadow-2xl transform hover:rotate-0 hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer z-20 w-full md:w-72 md:rotate-3 mt-4 md:mt-0">
-                            <!-- Profile Header -->
-                            <div class="flex items-center mb-4 sm:mb-6">
-                                <div class="w-12 sm:w-16 h-12 sm:h-16 rounded-full overflow-hidden border-3 border-deep-gray mr-3 sm:mr-4 shadow-md">
-                                    <img src="/Images/tiktok.jpeg" alt="Melbourne Food TikTok" class="w-full h-full object-cover">
-                                </div>
-                                <div class="flex-1">
-                                    <h3 class="font-playfair font-bold text-base sm:text-lg text-deep-gray mb-1">Melbourne Food</h3>
-                                    <p class="text-warm-gray text-xs sm:text-sm font-poppins">Food Content Creator</p>
-                                </div>
-                            </div>
-                            
-                            <!-- Stats Row -->
-                            <div class="flex justify-between text-center mb-4 sm:mb-6 bg-muted-beige bg-opacity-30 rounded-xl p-3 sm:p-4">
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">1.6K</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Following</div>
-                                </div>
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">3.1K</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Followers</div>
-                                </div>
-                                <div>
-                                    <div class="font-playfair font-bold text-lg sm:text-xl text-deep-gray">41.7K</div>
-                                    <div class="text-warm-gray text-xs font-poppins">Likes</div>
-                                </div>
-                            </div>
-                            
-                            <!-- About Section -->
-                            <div class="mb-4">
-                                <h4 class="font-playfair font-medium text-deep-gray mb-2 text-sm sm:text-base">About</h4>
-                                <p class="text-warm-gray text-xs sm:text-sm font-poppins leading-relaxed">
-                                    Showcasing Melbourne's best food spots and creating engaging culinary content.
-                                </p>
-                            </div>
-                            
-                            <!-- TikTok Badge -->
-                            <div class="flex items-center justify-center">
-                                <i class="fab fa-tiktok text-black text-base sm:text-lg mr-2"></i>
-                                <span class="font-poppins text-xs sm:text-sm text-deep-gray">@melbournesfood</span>
-                            </div>
-                        </div>
+                        <!-- Phone Details -->
+                        <div style="position: absolute; top: 25px; left: 50%; transform: translateX(-50%); width: 60px; height: 6px; background: #333; border-radius: 3px; z-index: 10;"></div>
+                        <div style="position: absolute; bottom: 15px; left: 50%; transform: translateX(-50%); width: 40px; height: 4px; background: #333; border-radius: 2px; z-index: 10;"></div>
                     </div>
                     
                     <!-- Floating decorative elements -->
-                    <div class="floating-elements hidden md:block">
+                    <div class="floating-elements">
                         <div class="absolute -bottom-6 -right-6 bg-white p-4 rounded-full shadow-xl z-0 animate-float">
-                            <i class="fas fa-camera text-soft-pink text-2xl"></i>
+                            <i class="fas fa-video text-soft-pink text-2xl"></i>
                         </div>
                         <div class="absolute -top-6 -left-6 bg-white p-4 rounded-full shadow-xl z-0 animate-float" style="animation-delay: 1s;">
-                            <i class="fas fa-utensils text-soft-pink text-2xl"></i>
+                            <i class="fas fa-heart text-soft-pink text-2xl"></i>
                         </div>
                         <div class="absolute top-20 -right-10 bg-white p-3 rounded-full shadow-xl z-0 animate-float" style="animation-delay: 2s;">
-                            <i class="fas fa-magic text-soft-pink text-xl"></i>
+                            <i class="fas fa-star text-soft-pink text-xl"></i>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Media Cards Section -->
+    <section id="social-cards" class="py-16 sm:py-20 bg-gradient-to-br from-soft-pink/10 to-muted-beige/20">
+        <div class="container mx-auto px-4 sm:px-6">
+            <h2 class="section-title text-3xl sm:text-4xl md:text-5xl font-playfair font-bold mb-8 sm:mb-12 text-center scroll-fade">Social Media Profiles</h2>
+            
+            <!-- Social Media Cards Container -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto scroll-fade">
+                <!-- Instagram Card -->
+                <div class="social-media-card bg-white rounded-2xl p-6 shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
+                    <!-- Profile Header -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-3 border-soft-pink mr-4 shadow-md">
+                            <img src="/Images/about.jpg" alt="Monica's Instagram" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-playfair font-bold text-lg text-deep-gray mb-1">Monica Smirnoff</h3>
+                            <p class="text-warm-gray text-sm font-poppins">UGC Content Creator</p>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <!-- About Section -->
+                    <div class="mb-4">
+                        <h4 class="font-playfair font-medium text-deep-gray mb-2">About</h4>
+                        <p class="text-warm-gray text-sm font-poppins leading-relaxed">
+                            Food photographer & blogger creating authentic brand stories for lifestyle and beauty niches.
+                        </p>
+                    </div>
+                    
+                    <!-- Instagram Badge -->
+                    <div class="flex items-center justify-center">
+                        <i class="fab fa-instagram text-pink-600 text-lg mr-2"></i>
+                        <span class="font-poppins text-sm text-deep-gray">@officialmonicasmirnoff</span>
+                    </div>
+                </div>
+                
+                <!-- TikTok Card -->
+                <div class="social-media-card bg-white rounded-2xl p-6 shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
+                    <!-- Profile Header -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-3 border-deep-gray mr-4 shadow-md">
+                            <img src="/Images/tiktok.jpeg" alt="Melbourne Food TikTok" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-playfair font-bold text-lg text-deep-gray mb-1">Melbourne Food</h3>
+                            <p class="text-warm-gray text-sm font-poppins">Food Content Creator</p>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <!-- About Section -->
+                    <div class="mb-4">
+                        <h4 class="font-playfair font-medium text-deep-gray mb-2">About</h4>
+                        <p class="text-warm-gray text-sm font-poppins leading-relaxed">
+                            Showcasing Melbourne's best food spots and creating engaging culinary content.
+                        </p>
+                    </div>
+                    
+                    <!-- TikTok Badge -->
+                    <div class="flex items-center justify-center">
+                        <i class="fab fa-tiktok text-black text-lg mr-2"></i>
+                        <span class="font-poppins text-sm text-deep-gray">@melbournesfood</span>
+                    </div>
+                </div>
+                
+                <!-- UGC with Mon Card -->
+                <div class="social-media-card bg-white rounded-2xl p-6 shadow-2xl transform hover:scale-105 transition-all duration-300 ease-in-out cursor-pointer">
+                    <!-- Profile Header -->
+                    <div class="flex items-center mb-6">
+                        <div class="w-16 h-16 rounded-full overflow-hidden border-3 border-purple-400 mr-4 shadow-md">
+                            <img src="/Images/ugcwithmon.jpeg" alt="UGC with Mon" class="w-full h-full object-cover">
+                        </div>
+                        <div class="flex-1">
+                            <h3 class="font-playfair font-bold text-lg text-deep-gray mb-1">Ugcwithmon</h3>
+                            <p class="text-warm-gray text-sm font-poppins">UGC Content creator</p>
+                        </div>
+                    </div>
+                    
+
+                    
+                    <!-- About Section -->
+                    <div class="mb-4">
+                        <h4 class="font-playfair font-medium text-deep-gray mb-2">About</h4>
+                        <p class="text-warm-gray text-sm font-poppins leading-relaxed">
+                            Melbourne 📍 UGC Content creator specializing in authentic brand storytelling and lifestyle content.
+                        </p>
+                    </div>
+                    
+                    <!-- Contact Badge -->
+                    <div class="flex items-center justify-center">
+                        <i class="fas fa-envelope text-purple-600 text-lg mr-2"></i>
+                        <span class="font-poppins text-sm text-deep-gray">officialmonicasmirnoff@gmail.com</span>
                     </div>
                 </div>
             </div>
@@ -690,155 +686,155 @@
                 <div class="overflow-x-auto pb-8">
                     <div class="flex space-x-4 sm:space-x-8 w-max px-4">
                         <!-- Video 1 -->
-                        <div class="w-56 sm:w-72 flex-shrink-0 video-card">
+                               <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/vid1.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Review</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Review - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 2 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/vid2.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Photography</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Photography - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 3 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/vid3.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Promotion</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Food Promotion - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- Video 4 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/vid4.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Travel Vlog</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Travel Vlog - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- UGC Video 1 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/UGC1.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">UGC Content</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">UGC Content - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- UGC Video 2 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/UGC2.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Brand Partnership</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Brand Partnership - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- UGC Video 3 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/UGC3.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Product Review</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Product Review - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                         
                         <!-- UGC Video 4 -->
                         <div class="w-56 sm:w-72 flex-shrink-0 video-card">
                             <div class="phone-mockup mx-auto" style="width: 200px; height: 400px; position: relative; border-radius: 35px; background: linear-gradient(145deg, #2c2c2c, #1a1a1a); padding: 10px; box-shadow: 0 20px 40px rgba(0,0,0,0.25), 0 0 0 1px rgba(255,255,255,0.05), inset 0 1px 0 rgba(255,255,255,0.1); transform: perspective(1000px) rotateY(-5deg) rotateX(5deg); transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);">
                                 <div class="phone-screen" style="width: 100%; height: 100%; border-radius: 28px; overflow: hidden; background: #000; position: relative;">
-                                    <video class="w-full h-full object-cover" autoplay loop muted playsinline>
+                                    <video class="w-full h-full object-cover" autoplay loop playsinline controls muted>
                                         <source src="/Images/UGC4.mp4" type="video/mp4">
                                     </video>
-                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease;">
+                                    <div class="video-overlay" style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); display: flex; align-items: center; justify-content: center; opacity: 0; transition: all 0.3s ease; pointer-events: auto;">
                                         <div class="bg-white bg-opacity-90 rounded-full p-3 backdrop-blur-sm">
-                                            <i class="fas fa-volume-up text-soft-pink text-xl"></i>
+                                            <i class="text-soft-pink text-xl">🔇</i>
                                         </div>
                                     </div>
                                 </div>
                                 <div style="position: absolute; top: 20px; left: 50%; transform: translateX(-50%); width: 50px; height: 5px; background: #333; border-radius: 3px; z-index: 10;"></div>
                                 <div style="position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); width: 35px; height: 3px; background: #333; border-radius: 2px; z-index: 10;"></div>
                             </div>
-                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Product Endorsement</p>
+                            <p class="text-center mt-4 font-poppins text-warm-gray text-sm sm:text-base">Product Endorsement - <a href="https://www.tiktok.com/@monicasmirnoff" target="_blank" class="text-soft-pink hover:underline">Watch on TikTok</a></p>
                         </div>
                     </div>
                 </div>
@@ -846,7 +842,7 @@
             
             <!-- Instagram Gallery -->
             <div class="scroll-fade">
-                <h3 class="text-2xl sm:text-3xl font-playfair font-medium mb-8 sm:mb-12 text-center">Professional Food hotography </h3>
+                <h3 class="text-2xl sm:text-3xl font-playfair font-medium mb-8 sm:mb-12 text-center">Professional Food Photography </h3>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
                     
                     <!-- Instagram Post 1 -->
@@ -1255,6 +1251,28 @@
                 </a>
                 
             </div>
+            
+            <!-- Contact Form -->
+            <div class="max-w-md mx-auto mt-16 bg-white rounded-xl shadow-lg p-8 scroll-fade">
+                <h3 class="text-2xl font-playfair font-bold mb-6 text-center text-deep-gray">Get In Touch</h3>
+                <form id="contactForm" class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-deep-gray mb-2">Name</label>
+                        <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-soft-pink focus:border-transparent transition-all duration-200" placeholder="Your name">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-deep-gray mb-2">Email</label>
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-soft-pink focus:border-transparent transition-all duration-200" placeholder="your.email@example.com">
+                    </div>
+                    <div>
+                        <label for="message" class="block text-sm font-medium text-deep-gray mb-2">Message</label>
+                        <textarea id="message" name="message" rows="4" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-soft-pink focus:border-transparent transition-all duration-200 resize-none" placeholder="Tell me about your project..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full px-6 py-3 bg-soft-pink text-deep-gray rounded-lg font-medium hover:bg-opacity-90 transition-all duration-200 shadow-md hover:shadow-lg transform hover:scale-105">
+                        Send Message
+                    </button>
+                </form>
+            </div>
         </div>
     </section>
 
@@ -1434,11 +1452,123 @@
             });
         }
         
+        // Video mute/unmute functionality
+        function initVideoControls() {
+            const videos = document.querySelectorAll('.video-card video');
+            
+            videos.forEach(video => {
+                const overlay = video.parentElement.querySelector('.video-overlay');
+                const volumeIcon = overlay.querySelector('i');
+                
+                // Set initial state
+                video.muted = true;
+                volumeIcon.textContent = '🔇';
+                volumeIcon.className = 'text-soft-pink text-xl';
+                
+                // Function to toggle video sound
+                const toggleVideoSound = (e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    
+                    // Mute all other videos
+                    videos.forEach(otherVideo => {
+                        if (otherVideo !== video) {
+                            otherVideo.muted = true;
+                            const otherOverlay = otherVideo.parentElement.querySelector('.video-overlay');
+                            const otherIcon = otherOverlay.querySelector('i');
+                            otherIcon.textContent = '🔇';
+                            otherIcon.className = 'text-soft-pink text-xl';
+                            otherOverlay.style.opacity = '0';
+                        }
+                    });
+                    
+                    // Toggle current video sound
+                    video.muted = !video.muted;
+                    
+                    if (video.muted) {
+                        volumeIcon.textContent = '🔇';
+                        volumeIcon.className = 'text-soft-pink text-xl';
+                        overlay.style.opacity = '0';
+                    } else {
+                        volumeIcon.textContent = '🔊';
+                        volumeIcon.className = 'text-soft-pink text-xl';
+                        overlay.style.opacity = '1';
+                        
+                        // Hide overlay after 2 seconds
+                        setTimeout(() => {
+                            overlay.style.opacity = '0';
+                        }, 2000);
+                    }
+                };
+                
+                // Add click event to video container
+                video.addEventListener('click', toggleVideoSound);
+                
+                // Add click event to volume icon overlay
+                overlay.addEventListener('click', toggleVideoSound);
+                
+                // Show overlay on hover when unmuted
+                video.addEventListener('mouseenter', () => {
+                    if (!video.muted) {
+                        overlay.style.opacity = '1';
+                    }
+                });
+                
+                video.addEventListener('mouseleave', () => {
+                    if (!video.muted) {
+                        setTimeout(() => {
+                            overlay.style.opacity = '0';
+                        }, 1000);
+                    }
+                });
+            });
+        }
+        
+        // Contact form functionality
+        function initContactForm() {
+            const contactForm = document.getElementById('contactForm');
+            
+            if (contactForm) {
+                contactForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const name = document.getElementById('name').value;
+                    const email = document.getElementById('email').value;
+                    const message = document.getElementById('message').value;
+                    
+                    // Create Gmail compose URL with pre-filled data
+                    const subject = encodeURIComponent(`Contact from ${name}`);
+                    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+                    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=officialmonicasmirnoff@gmail.com&su=${subject}&body=${body}`;
+                    
+                    // Open Gmail in new tab
+                    window.open(gmailUrl, '_blank');
+                    
+                    // Optional: Reset form after submission
+                    contactForm.reset();
+                    
+                    // Show success message (optional)
+                    const submitButton = contactForm.querySelector('button[type="submit"]');
+                    const originalText = submitButton.textContent;
+                    submitButton.textContent = 'Message Sent! ✓';
+                    submitButton.style.backgroundColor = '#10b981';
+                    
+                    setTimeout(() => {
+                        submitButton.textContent = originalText;
+                        submitButton.style.backgroundColor = '';
+                    }, 3000);
+                });
+            }
+        }
+        
         // Initialize all functionality when DOM is loaded
         document.addEventListener('DOMContentLoaded', () => {
             initSmoothNavigation();
             initScrollAnimations();
             initSectionTracking();
+            initVideoControls();
+            initContactForm();
             
             // Initial activation of first section
             const firstSection = document.querySelector('section');
